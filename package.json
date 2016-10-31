@@ -1,0 +1,22 @@
+{
+  "name": "music-venues-in-san-fran-map",
+  "version": "1.0.0",
+  "description": "Single-page app showing music venues in San Francisco",
+  "main": "Gruntfile.js",
+  "scripts": {
+    "test": "grunt test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/justinharringa/neighborhood-map.git"
+  },
+  "author": "Justin Harringa",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/justinharringa/neighborhood-map/issues"
+  },
+  "homepage": "https://github.com/justinharringa/neighborhood-map#readme",
+  "devDependencies": {
+    "grunt": "^0.4.5"
+  }
+}

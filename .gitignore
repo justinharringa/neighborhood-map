@@ -1,3 +1,6 @@
 # IntelliJ
 *.iml
 .idea
+
+# npm/node
+node_modules
