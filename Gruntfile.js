@@ -119,7 +119,7 @@ module.exports = function (grunt) {
             }
         },
         jshint: {
-            all: ['src/**/*.js']
+            all: ['src/*.js']
         },
         cssmin: {
             target: {
