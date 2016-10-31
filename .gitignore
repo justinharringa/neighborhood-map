@@ -4,3 +4,6 @@
 
 # npm/node
 node_modules
+
+# js dependencies
+src/js/libs

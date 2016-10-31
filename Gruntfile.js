@@ -51,6 +51,16 @@ module.exports = function (grunt) {
             }
         },
         copy: {
+            js: {
+                expand: true,
+                cwd: './node_modules',
+                dest: './src/js/libs/',
+                flatten: true,
+                filter: 'isFile',
+                src: [
+                    './knockout/build/output/knockout-latest.js'
+                ]
+            },
             main: {
                 files: [
                     {expand: true, cwd: 'src/', src: ['**'], dest: 'dist/'}

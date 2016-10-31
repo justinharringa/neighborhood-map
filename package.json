@@ -31,5 +31,8 @@
     "grunt-responsive-images-extender": "2.0.1",
     "load-grunt-tasks": "^3.5.0",
     "ngrok": "^2.1.8"
+  },
+  "dependencies": {
+    "knockout": "3.4.0"
   }
 }
