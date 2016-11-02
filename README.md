@@ -32,3 +32,9 @@ command from the root directory of the project to be able to load via
 an HTTP Server:
 
 ```grunt http-server:dev```
+
+# Bootstrap for Responsiveness
+The neighborhood map was built on Twitter's <a href="http://getbootstrap.com/">Bootstrap</a> framework.
+
+* <a href="http://getbootstrap.com/css/">Bootstrap's CSS Classes</a>
+* <a href="http://getbootstrap.com/components/">Bootstrap's Components</a>
