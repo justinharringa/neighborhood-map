@@ -15,6 +15,10 @@
     <style>
         /* Pad body for navbar-fixed-top style */
         body { padding-top: 70px; }
+        #map{
+            height: 400px;
+            margin-bottom: 20px;
+        }
     </style>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -35,7 +39,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-8 col-sm-7 col-xs-12">
-                <p>Map goes here...</p>
+                <div id="map"></div>
             </div>
             <div class="col-md-4 col-sm-5 col-xs-12">
                 <div class="panel panel-primary">
@@ -55,6 +59,19 @@
             </div>
         </div>
     </div>
+    <script>
+        // Referenced from Google Maps doc: https://developers.google.com/maps/documentation/javascript/
+        var map;
+        function initMap() {
+            map = new google.maps.Map(document.getElementById('map'), {
+                // Corona Heights Park seemed to be a decent center
+                center: {lat: 37.765278, lng: -122.438530},
+                zoom: 12
+            });
+        }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC7CdiDDoEfq6B-VK1Zbi8bwq6fDkakC1A&callback=initMap"
+            async defer></script>
     <!--Use CDN version of jQuery & bootstrap JS-->
     <script src=https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
