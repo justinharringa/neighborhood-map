@@ -83,7 +83,7 @@ module.exports = function (grunt) {
             }
         },
         jshint: {
-            all: ['src/*.js']
+            all: ['src/js/*.js', 'test/spec/*.js']
         },
         cssmin: {
             target: {
@@ -104,6 +104,18 @@ module.exports = function (grunt) {
                     src: '**/*.js',
                     dest: 'dist/'
                 }]
+            }
+        },
+        // Using grunt-karma: https://github.com/karma-runner/grunt-karma
+        // Using karma-jasmine: https://github.com/karma-runner/karma-jasmine
+        karma: {
+            unit: {
+                options: {
+                    browsers: ['Chrome'],
+                    files: ['src/js/**/*.js', 'test/**/*.js'],
+                    frameworks: ['jasmine'],
+                    singleRun: true
+                }
             }
         }
     });
@@ -131,6 +143,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-htmlmin');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-karma');
 
     // Register default tasks
     grunt.registerTask('default',
@@ -138,6 +151,6 @@ module.exports = function (grunt) {
             'copy',
             'htmlmin',
             'cssmin',
-            'uglify']);
-    grunt.registerTask('test', ['jshint'])
+            'uglify',
+            'jshint']);
 };

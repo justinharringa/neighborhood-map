@@ -5,17 +5,20 @@ Single-page app that shows music venue locations around San Francisco
 
 # Getting Started
 
-## Install Node.js 5
+## Install Node.js
 You should install Node.js AND update npm following 
 [these instructions](https://docs.npmjs.com/getting-started/installing-node).
-
-**NOTE**: Node.js 6 won't work properly with grunt-responsive-images-extender 
-([see issue](https://github.com/stephanmax/grunt-responsive-images-extender/issues/12))
 
 ## Install Dependencies
 You will just need to run `npm install` to download the dependencies so 
 long as you have installed Node.js and updated npm as per the 
 instructions referenced above.
+
+## Running unit tests
+**NOTE**: Chrome must be installed on any system with this configuration
+Using [grunt-karma](https://github.com/karma-runner/grunt-karma) and
+[karma-jasmine](https://github.com/karma-runner/karma-jasmine) to run 
+[Jasmine](https://jasmine.github.io/) unit test specs.
 
 ## Usage 
 
