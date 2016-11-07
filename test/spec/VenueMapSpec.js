@@ -14,17 +14,17 @@ describe("VenueMapModel", function() {
 
     it("filters to only include Pier 35", function() {
         venueMapModel.nameFilter('Pier 35');
-        expect(venueMapModel.filteredVenues()).toEqual([venuesIn94101.Venues[1]])
+        expect(venueMapModel.filteredVenues()).toEqual([venuesIn94101.Venues[1]]);
     });
 
     it("filters nothing if nameFilter is empty", function() {
         venueMapModel.nameFilter('');
-        expect(venueMapModel.filteredVenues()).toEqual(venuesIn94101.Venues)
+        expect(venueMapModel.filteredVenues()).toEqual(venuesIn94101.Venues);
     });
 
     it("filters everything if nameFilter is gibberish", function() {
         venueMapModel.nameFilter('abcdefg');
-        expect(venueMapModel.filteredVenues()).toEqual([])
+        expect(venueMapModel.filteredVenues()).toEqual([]);
     });
 });
 
