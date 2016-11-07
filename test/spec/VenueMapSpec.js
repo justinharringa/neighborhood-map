@@ -2,8 +2,29 @@
  Jasmine spec to test our VenueMapModel. See https://jasmine.github.io/ for documentation
  */
 describe("VenueMapModel", function() {
+    var venueMapModel;
+
+    beforeEach(function () {
+        venueMapModel = new VenueMapModel(venuesIn94101.Venues);
+    });
+
     it("adds venues properly", function() {
-        expect(new VenueMapModel(venuesIn94101.Venues).venues).toContain(venuesIn94101.Venues[0]);
+        expect(venueMapModel.venues).toContain(venuesIn94101.Venues[0]);
+    });
+
+    it("filters to only include Pier 35", function() {
+        venueMapModel.nameFilter('Pier 35');
+        expect(venueMapModel.filteredVenues()).toEqual([venuesIn94101.Venues[1]])
+    });
+
+    it("filters nothing if nameFilter is empty", function() {
+        venueMapModel.nameFilter('');
+        expect(venueMapModel.filteredVenues()).toEqual(venuesIn94101.Venues)
+    });
+
+    it("filters everything if nameFilter is gibberish", function() {
+        venueMapModel.nameFilter('abcdefg');
+        expect(venueMapModel.filteredVenues()).toEqual([])
     });
 });
 
