@@ -44,5 +44,5 @@ The neighborhood map was built on Twitter's <a href="http://getbootstrap.com/">B
 * <a href="http://getbootstrap.com/css/">Bootstrap's CSS Classes</a>
 * <a href="http://getbootstrap.com/components/">Bootstrap's Components</a>
 
-# Powered by [SeatGeek](https://www.seatgeek.com)
+# Powered by [![SeatGeek](src/img/seatgeek-102x19.png)](https://www.seatgeek.com)
 Using [SeatGeek](https://www.seatgeek.com)'s API for venues.
