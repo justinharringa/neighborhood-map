@@ -33,4 +33,16 @@ function addMarkerToVenue(venue) {
         map: null,
         title: venue.name
     });
+    venue.marker.addListener('click', function() { toggleBounce(venue.marker) });
+}
+
+// We'll need to hold onto a reference of the currentlyBouncingMarker to turn its animation off
+var currentlyBouncingMarker = null;
+
+function toggleBounce(marker) {
+    if (currentlyBouncingMarker !== null) {
+        currentlyBouncingMarker.setAnimation(null);
+    }
+    marker.setAnimation(google.maps.Animation.BOUNCE);
+    currentlyBouncingMarker = marker;
 }
