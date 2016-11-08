@@ -16,7 +16,12 @@ function VenueMapModel(venues, map) {
             var lowerCaseVenueName = venue.name.toString().toLowerCase();
             var lowerCaseNameFilter = that.nameFilter().toString().toLowerCase();
             // if lowercase venue name contains lowercase nameFilter, include in new computed array
-            return lowerCaseVenueName.indexOf(lowerCaseNameFilter) > -1;
+            if (lowerCaseVenueName.indexOf(lowerCaseNameFilter) > -1) {
+                venue.marker.setMap(map);
+                return true;
+            }
+            venue.marker.setMap(null);
+            return false;
         });
     }, that);
 }
