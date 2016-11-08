@@ -33,7 +33,10 @@ function addMarkerToVenue(venue) {
         map: null,
         title: venue.name
     });
-    venue.marker.addListener('click', function() { toggleBounce(venue.marker) });
+    venue.marker.addListener('click',
+        function() {
+            toggleBounce(venue.marker);
+    });
 }
 
 // We'll need to hold onto a reference of the currentlyBouncingMarker to turn its animation off
