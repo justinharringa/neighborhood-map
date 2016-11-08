@@ -60,7 +60,7 @@
         </div>
         <div class="row">
             <div class="col-md-12">
-                <a href="http://www.jambase.com" class="pull-right">powered by JamBase™</a>
+                <a href="https://seatgeek.com" class="pull-right">powered by <img src="img/seatgeek-102x19.png" alt="SeatGeek"/></a>
             </div>
         </div>
     </div>
@@ -82,10 +82,10 @@
     <!--Use CDN version of jQuery & bootstrap JS-->
     <script src=https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js></script>
     <script>
-//        $.getJSON("http://api.jambase.com/venues?zipCode=94101&page=0&api_key=fm5wzr7ejahnndf3sk7m9qsg",
-//                function(data) {
-//                    console.log(data);
-//                });
+        $.getJSON("https://api.seatgeek.com/2/venues?city=san+francisco&state=ca&per_page=1500&client_id=NjE1OTM5NHwxNDc4NTg0MDAw",
+                function(data) {
+                    console.log(data);
+                });
     </script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
             integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"

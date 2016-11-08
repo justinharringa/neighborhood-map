@@ -9,7 +9,7 @@ function VenueMapModel(venues) {
 
     this.filteredVenues = ko.computed(function () {
         return venues.filter(function (venue) {
-            var lowerCaseVenueName = venue.Name.toString().toLowerCase();
+            var lowerCaseVenueName = venue.name.toString().toLowerCase();
             var lowerCaseNameFilter = that.nameFilter().toString().toLowerCase();
             // if lowercase venue name contains lowercase nameFilter, include in new computed array
             return lowerCaseVenueName.indexOf(lowerCaseNameFilter) > -1;
