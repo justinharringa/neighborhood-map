@@ -10,6 +10,11 @@ describe("addMarkerToVenue() in VenueMap", function () {
     it("adds a marker with the name as title", function () {
         expect(venue.marker.title).toEqual(venue.name);
     });
+
+    it("adds a position with numeric lat and lng", function () {
+        expect(venue.marker.position.lat).toEqual(venue.location.lat.valueOf());
+        expect(venue.marker.position.lng).toEqual(venue.location.lon.valueOf());
+    });
 });
 
 var venue = {

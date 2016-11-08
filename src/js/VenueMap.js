@@ -22,8 +22,9 @@ function VenueMapModel(venues, map) {
 }
 
 function addMarkerToVenue(venue) {
+    var venueLocation = venue.location;
     return venue.marker = new google.maps.Marker({
-        position: venue.location,
+        position: {lat: venueLocation.lat, lng: venueLocation.lon},
         map: null,
         title: venue.name
     });
