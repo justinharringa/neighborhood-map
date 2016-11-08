@@ -24,6 +24,10 @@ function VenueMapModel(venues, map) {
             return false;
         });
     }, that);
+
+    this.animateMarkerForVenue = function(venue) {
+        animateMarkerForVenue(venue);
+    }
 }
 
 function addMarkerToVenue(venue) {
@@ -33,17 +37,21 @@ function addMarkerToVenue(venue) {
         map: null,
         title: venue.name
     });
-    venue.marker.addListener('click',
-        function() {
-            toggleBounce(venue.marker);
-            showInfoWindow(venue);
+    venue.marker.addListener('click', function() {
+        animateMarkerForVenue(venue)
     });
+}
+
+function animateMarkerForVenue(venue) {
+    toggleBounce(venue);
+    showInfoWindow(venue);
 }
 
 // We'll need to hold onto a reference of the currentlyBouncingMarker to turn its animation off
 var currentlyBouncingMarker = null;
 
-function toggleBounce(marker) {
+function toggleBounce(venue) {
+    var marker = venue.marker;
     if (currentlyBouncingMarker !== null) {
         currentlyBouncingMarker.setAnimation(null);
     }

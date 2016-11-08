@@ -22,6 +22,10 @@
         .venueName {
             font-weight: bold;
         }
+        .venueInList {
+            width: 100%;
+            display: block;
+        }
     </style>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -57,7 +61,9 @@
                         </div>
                     </div>
                     <ul class="list-group" data-bind="foreach: filteredVenues">
-                        <li class="list-group-item" data-bind="text: name"></li>
+                        <li class="list-group-item">
+                            <span class="venueInList" data-bind="text: name, click: $parent.animateMarkerForVenue"></span>
+                        </li>
                     </ul>
                 </div>
             </div>
