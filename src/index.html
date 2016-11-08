@@ -47,7 +47,7 @@
                         <div class="input-group">
                             <span class="input-group-addon">Name</span>
                             <label class="sr-only" for="filterVenues">Filter Venues by Name</label>
-                            <input type="text" class="form-control" id="filterVenues" placeholder="Filter" autofocus>
+                            <input data-bind="value: nameFilter, valueUpdate: 'afterkeydown'" type="text" class="form-control" id="filterVenues" placeholder="Filter" autofocus>
                             <span class="input-group-addon"><span class="badge">2</span></span>
                         </div>
                     </div>
@@ -66,6 +66,10 @@
     </div>
     <script src="js/VenueMap.js"></script>
     <script src="js/libs/knockout-latest.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC7CdiDDoEfq6B-VK1Zbi8bwq6fDkakC1A&callback=initMap"
+            async defer></script>
+    <!--Use CDN version of jQuery & bootstrap JS-->
+    <script src=https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js></script>
     <script>
         // Referenced from Google Maps doc: https://developers.google.com/maps/documentation/javascript/
         var map;
@@ -76,15 +80,15 @@
                 zoom: 12
             });
         }
-    </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC7CdiDDoEfq6B-VK1Zbi8bwq6fDkakC1A&callback=initMap"
-            async defer></script>
-    <!--Use CDN version of jQuery & bootstrap JS-->
-    <script src=https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js></script>
-    <script>
+
+        var venuesInSanFran = [];
+        // bind VenupMapModel
+        var venueMapModel = new VenueMapModel(venuesInSanFran);
+        ko.applyBindings(venueMapModel);
         $.getJSON("https://api.seatgeek.com/2/venues?city=san+francisco&state=ca&per_page=1500&client_id=NjE1OTM5NHwxNDc4NTg0MDAw",
                 function(data) {
                     console.log(data);
+                    venueMapModel.venues(data.venues);
                 });
     </script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
