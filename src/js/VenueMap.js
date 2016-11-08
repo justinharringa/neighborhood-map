@@ -1,11 +1,15 @@
 /*
  This class provides a model for a Venue Map
  */
-function VenueMapModel(venues) {
+function VenueMapModel(venues, map) {
     var that = this;
+    venues.forEach(function(venue) {
+        addMarkerToVenue(venue)
+    });
     this.venues = ko.observableArray(venues);
     this.zipCode = ko.observable("");
     this.nameFilter = ko.observable("");
+    this.map = map;
 
     this.filteredVenues = ko.computed(function () {
         return venues.filter(function (venue) {
@@ -15,4 +19,12 @@ function VenueMapModel(venues) {
             return lowerCaseVenueName.indexOf(lowerCaseNameFilter) > -1;
         });
     }, that);
+}
+
+function addMarkerToVenue(venue) {
+    return venue.marker = new google.maps.Marker({
+        position: venue.location,
+        map: null,
+        title: venue.name
+    });
 }

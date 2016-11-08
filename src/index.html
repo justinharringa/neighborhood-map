@@ -87,7 +87,7 @@
         $.getJSON("https://api.seatgeek.com/2/venues?city=san+francisco&state=ca&per_page=1500&client_id=NjE1OTM5NHwxNDc4NTg0MDAw",
                 function(data) {
                     console.log('Loaded ' + data.meta.total + ' venues');
-                    venueMapModel = new VenueMapModel(data.venues);
+                    venueMapModel = new VenueMapModel(data.venues, map);
                     ko.applyBindings(venueMapModel);
                 });
     </script>
