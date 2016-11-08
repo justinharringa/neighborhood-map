@@ -51,9 +51,8 @@
                             <span class="input-group-addon"><span class="badge">2</span></span>
                         </div>
                     </div>
-                    <ul class="list-group">
-                        <li class="list-group-item">Some venue</li>
-                        <li class="list-group-item">Another venue</li>
+                    <ul class="list-group" data-bind="foreach: filteredVenues">
+                        <li class="list-group-item" data-bind="text: name"></li>
                     </ul>
                 </div>
             </div>
@@ -81,14 +80,13 @@
             });
         }
 
-        var venuesInSanFran = [];
+        var venueMapModel;
         // bind VenupMapModel
-        var venueMapModel = new VenueMapModel(venuesInSanFran);
-        ko.applyBindings(venueMapModel);
         $.getJSON("https://api.seatgeek.com/2/venues?city=san+francisco&state=ca&per_page=1500&client_id=NjE1OTM5NHwxNDc4NTg0MDAw",
                 function(data) {
-                    console.log(data);
-                    venueMapModel.venues(data.venues);
+                    console.log('Loaded ' + data.meta.total + ' venues');
+                    venueMapModel = new VenueMapModel(data.venues);
+                    ko.applyBindings(venueMapModel);
                 });
     </script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
