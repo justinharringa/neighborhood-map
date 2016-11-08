@@ -4,7 +4,7 @@
 function VenueMapModel(venues, map) {
     var that = this;
     venues.forEach(function(venue) {
-        addMarkerToVenue(venue)
+        addMarkerToVenue(venue);
     });
     this.venues = ko.observableArray(venues);
     this.zipCode = ko.observable("");
@@ -28,7 +28,7 @@ function VenueMapModel(venues, map) {
 
 function addMarkerToVenue(venue) {
     var venueLocation = venue.location;
-    return venue.marker = new google.maps.Marker({
+    venue.marker = new google.maps.Marker({
         position: {lat: venueLocation.lat, lng: venueLocation.lon},
         map: null,
         title: venue.name

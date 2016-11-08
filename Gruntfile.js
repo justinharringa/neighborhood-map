@@ -83,7 +83,7 @@ module.exports = function (grunt) {
             }
         },
         jshint: {
-            all: ['src/js/*.js', 'test/spec/*.js']
+            all: ['src/js/*.js', 'test/**/*.js']
         },
         cssmin: {
             target: {
