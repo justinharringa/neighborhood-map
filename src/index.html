@@ -46,7 +46,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-8 col-sm-7 col-xs-12">
-                <div id="map"></div>
+                <div id="map">Loading Google Maps...</div>
             </div>
             <div class="col-md-4 col-sm-5 col-xs-12">
                 <div class="panel panel-primary">
@@ -98,6 +98,9 @@
                     console.log('Loaded ' + data.meta.total + ' venues');
                     venueMapModel = new VenueMapModel(data.venues, map);
                     ko.applyBindings(venueMapModel);
+                })
+                .fail(function() {
+                    alert('Could not retrieve SeatGeek information at this time');
                 });
     </script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"

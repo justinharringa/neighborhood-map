@@ -7,27 +7,32 @@ function VenueMapModel(venues, map) {
         addMarkerToVenue(venue);
     });
     this.venues = ko.observableArray(venues);
-    this.zipCode = ko.observable("");
     this.nameFilter = ko.observable("");
-    this.map = map;
+    this.map = ko.observable(map);
 
-    this.filteredVenues = ko.computed(function () {
-        return venues.filter(function (venue) {
+    this.filteredVenues = ko.pureComputed(function () {
+        return that.venues().filter(function (venue) {
             var lowerCaseVenueName = venue.name.toString().toLowerCase();
             var lowerCaseNameFilter = that.nameFilter().toString().toLowerCase();
             // if lowercase venue name contains lowercase nameFilter, include in new computed array
             if (lowerCaseVenueName.indexOf(lowerCaseNameFilter) > -1) {
-                venue.marker.setMap(map);
+                that.setMarkerMap(venue, map);
                 return true;
             }
-            venue.marker.setMap(null);
+            that.setMarkerMap(venue, null);
             return false;
         });
     }, that);
 
+    this.setMarkerMap = function (venue, map) {
+        if (venue.marker) {
+            venue.marker.setMap(map);
+        }
+    };
+
     this.animateMarkerForVenue = function(venue) {
         animateMarkerForVenue(venue);
-    }
+    };
 }
 
 function addMarkerToVenue(venue) {
