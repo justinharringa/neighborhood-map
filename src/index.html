@@ -48,7 +48,9 @@
                             <span class="input-group-addon">Name</span>
                             <label class="sr-only" for="filterVenues">Filter Venues by Name</label>
                             <input data-bind="value: nameFilter, valueUpdate: 'afterkeydown'" type="text" class="form-control" id="filterVenues" placeholder="Filter" autofocus>
-                            <span class="input-group-addon"><span class="badge">2</span></span>
+                            <span class="input-group-addon" data-bind="with: filteredVenues">
+                                <span class="badge" data-bind="text: length"></span>
+                            </span>
                         </div>
                     </div>
                     <ul class="list-group" data-bind="foreach: filteredVenues">
