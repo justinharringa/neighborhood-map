@@ -38,7 +38,7 @@ function addMarkerToVenue(venue) {
         title: venue.name
     });
     venue.marker.addListener('click', function() {
-        animateMarkerForVenue(venue)
+        animateMarkerForVenue(venue);
     });
 }
 
