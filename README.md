@@ -3,6 +3,8 @@ Single-page app that shows music venue locations around San Francisco
 
 [![Build Status](https://travis-ci.org/justinharringa/neighborhood-map.svg?branch=master)](https://travis-ci.org/justinharringa/neighborhood-map)
 
+Powered by [![SeatGeek](src/img/seatgeek-102x19.png)](https://www.seatgeek.com)
+
 # Getting Started
 
 ## Install Node.js
@@ -41,3 +43,6 @@ The neighborhood map was built on Twitter's <a href="http://getbootstrap.com/">B
 
 * <a href="http://getbootstrap.com/css/">Bootstrap's CSS Classes</a>
 * <a href="http://getbootstrap.com/components/">Bootstrap's Components</a>
+
+# Powered by [SeatGeek](https://www.seatgeek.com)
+Using [SeatGeek](https://www.seatgeek.com)'s API for venues.
