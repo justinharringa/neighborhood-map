@@ -78,6 +78,10 @@ function toggleBounce(venue) {
         currentlyBouncingMarker.setAnimation(null);
     }
     marker.setAnimation(google.maps.Animation.BOUNCE);
+    var fiveSeconds = 5 * 1000;
+    window.setTimeout(function () {
+        marker.setAnimation(null);
+    }, fiveSeconds);
     currentlyBouncingMarker = marker;
 }
 
