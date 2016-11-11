@@ -22,6 +22,8 @@ Using [grunt-karma](https://github.com/karma-runner/grunt-karma) and
 [karma-jasmine](https://github.com/karma-runner/karma-jasmine) to run 
 [Jasmine](https://jasmine.github.io/) unit test specs.
 
+Simply run `grunt karma` to run the unit tests.
+
 ## Usage 
 
 ### Build the project
