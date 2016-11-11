@@ -5,7 +5,10 @@ describe("VenueMapModel", function () {
     var venueMapModel;
 
     beforeEach(function () {
-        venueMapModel = new VenueMapModel(venuesInSanFrancisco.venues);
+        venueMapModel = new VenueMapModel();
+        venuesInSanFrancisco.venues.forEach(function (venue) {
+            venueMapModel.venues().push(venue);
+        });
     });
 
     it("adds venues properly", function () {

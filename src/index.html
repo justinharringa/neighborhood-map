@@ -81,22 +81,31 @@
     <!--Use CDN version of jQuery & bootstrap JS-->
     <script src=https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js></script>
     <script>
+        var venueMapModel = new VenueMapModel();
         // Referenced from Google Maps doc: https://developers.google.com/maps/documentation/javascript/
         var map;
+        /**
+         * This callback will set up the map once the Google Maps API has loaded and called it
+         */
         function initMap() {
             map = new google.maps.Map(document.getElementById('map'), {
                 // Corona Heights Park seemed to be a decent center
                 center: {lat: 37.765278, lng: -122.438530},
                 zoom: 12
             });
+            venueMapModel.map(map);
         }
 
-        var venueMapModel;
-        // bind VenupMapModel
+        /**
+         * Get venue information for San Francisco with a limit of 1500, add the venues to our venueMapModel and apply
+         * the Knockout bindings.
+         */
         $.getJSON("https://api.seatgeek.com/2/venues?city=san+francisco&state=ca&per_page=1500&client_id=NjE1OTM5NHwxNDc4NTg0MDAw",
                 function(data) {
                     console.log('Loaded ' + data.meta.total + ' venues');
-                    venueMapModel = new VenueMapModel(data.venues, map);
+                    data.venues.forEach(function(venue) {
+                        venueMapModel.venues().push(venue);
+                    });
                     ko.applyBindings(venueMapModel);
                 })
                 .fail(function() {
