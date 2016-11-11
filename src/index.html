@@ -96,6 +96,14 @@
             venueMapModel.map(map);
         }
 
+        function checkIfGoogleMapsLoaded() {
+            if (typeof google === "undefined") {
+                document.getElementById('map').textContent = 'Could not load Google Maps';
+            }
+        }
+        var twoMinutes = 2 * 60 * 1000;
+        window.setTimeout(checkIfGoogleMapsLoaded, twoMinutes);
+
         /**
          * Get venue information for San Francisco with a limit of 1500, add the venues to our venueMapModel and apply
          * the Knockout bindings.
