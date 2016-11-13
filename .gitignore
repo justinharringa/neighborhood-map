@@ -7,3 +7,6 @@ node_modules
 
 # js dependencies
 src/js/libs
+
+# dist directory
+dist
